@@ -23,8 +23,8 @@ export default function mention(linkify) {
 	linkify.inherits(MultiToken, MENTION, {
 		type: 'mention',
 		isLink: true,
-		toHref() {
-			return '/' + this.toString().substr(1);
+		toHref: function toHref() {
+			return '/userpost/' + this.toString().substr(1);
 		}
 	});
 
