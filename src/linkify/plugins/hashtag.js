@@ -11,9 +11,12 @@ export default function hashtag(linkify) {
 	}
 
 	linkify.inherits(MultiToken, HASHTAG, {
-		type: 'hashtag',
-		isLink: true
-	});
+        type: 'hashtag',
+        isLink: true,
+        toHref: function toHref() {
+            return '/hashtag/' + this.toString().substr(1);
+        }
+    });
 
 	const S_HASH = S_START.jump(TT.POUND);
 	const S_HASHTAG = new linkify.parser.State(HASHTAG);
